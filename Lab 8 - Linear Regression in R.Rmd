@@ -1,5 +1,5 @@
 ---
-title: "Lab 8"
+title: "Lab 8 - Linear Regression in R"
 author: "Gage Clawson"
 date: "11/24/2018"
 output: html_document
@@ -19,7 +19,37 @@ salmon <- read_csv("salmon.csv")
 ```
 
 ```{r}
+exploratory_scat <- ggplot(salmon, aes(x = year, y = salmon_fresh)) +
+  geom_point()
 
+exploratory_scat
+
+# looks linear to me. 
+# do not have any concerns. Maybe an outlier in 2015 or so. 
 ```
+
+```{r}
+salmon_model <- lm(salmon_fresh ~ year, data = salmon)
+salmon_model
+salmon_model_summary <- summary(salmon_model)
+salmon_model_summary
+
+#Imports(tons) = -14982940 + 7550(Year)
+
+# for every year, you add on 7550 tons on imports
+
+# at year 0, we have negative imports, which is impossible. This means that we likely will not have a good model for past models. 
+```
+
+```{r}
+par(mfrow = c(2,2))
+plot(salmon_model)
+
+# they are normally distributed 
+
+# Only concern is about one outlier. What is happening there? We see drops in imports in 2013 and 2014. Did something happen those years? Stricter regulations on salmon fishing? 
+```
+
+
 
 
