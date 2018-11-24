@@ -1,0 +1,25 @@
+---
+title: "Lab 8"
+author: "Gage Clawson"
+date: "11/24/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+salmon <- read_csv("salmon.csv")
+```
+
+```{r}
+
+```
+
+
